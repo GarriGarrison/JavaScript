@@ -27,7 +27,6 @@ class Controller {
 
   async topicsMenu() {
     let themeList = await this.model.readTopics()
-   // console.log(themeList);
     this.newGame = await this.view.printInput('Выберите тему: \n' + themeList)
   }
 
