@@ -12,7 +12,6 @@ class Model {
         this.gamesFile[i] = data[i-1]
       }
       
-      //return data.join('\n').replace(/_flashcard_data.txt/gim, '')  //сборка тем в одну строку без нумерации
       let themeStr = ''
       for (let i = 0; i < data.length; i++) {
         themeStr += `${i+1}. ${data[i].replace(/_flashcard_data.txt/gim, '')}\n`
