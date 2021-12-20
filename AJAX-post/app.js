@@ -9,7 +9,6 @@ function getPosts(callback) {
     // Асинхроная обработка
     xhr.addEventListener('load', () => {
         const response = JSON.parse(xhr.responseText)
-        //console.log(response)
         callback(response)
     })
 
@@ -52,7 +51,6 @@ function cardTemplate(post) {
     article.textContent = post.body
     cardBody.appendChild(title)
     cardBody.appendChild(article)
-    //console.log(cardBody)
     card.appendChild(cardBody)
     
     return card
@@ -82,7 +80,6 @@ btnAddPost.addEventListener('click', e => {
     createPost(newPost, response => {
         //console.log(response)
         const card = cardTemplate(response)
-        //console.log(card)
         container.insertAdjacentElement('afterbegin', card)
     })
 })
