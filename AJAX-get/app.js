@@ -39,6 +39,7 @@ function renderPosts(response) {
     container.appendChild(fragment)
 }
 
+
 btn.addEventListener('click', e => {
     getPosts(renderPosts)
 })
