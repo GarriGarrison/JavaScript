@@ -8,8 +8,6 @@ function getPosts(callback) {
 
     // Асинхроная обработка
     xhr.addEventListener('load', () => {
-        //console.log('request loaded')
-        //console.log(xhr.responseText)
         const response = JSON.parse(xhr.responseText)
         //console.log(response)
         callback(response)
@@ -28,10 +26,7 @@ function createPost(body, callback) {
 
     // Асинхроная обработка
     xhr.addEventListener('load', () => {
-        //console.log('request loaded')
-        //console.log(xhr.responseText)
         const response = JSON.parse(xhr.responseText)
-        //console.log(response)
         callback(response)
     })
 
