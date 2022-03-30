@@ -1,0 +1,7 @@
+.active {
+  background-color: lightgray;
+
+  @media (min-width: 767px) {
+    background-color: aliceblue;
+  }
+}
