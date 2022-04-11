@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background-image: url(12.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#canvas {
+  display: block;
+}
