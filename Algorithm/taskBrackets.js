@@ -1,25 +1,49 @@
-function isValid(s) {
-    const braces = {
-        '(': ')',
-        '{': '}',
-        '[': ']'
-    }
+function checkBracketsOneType(str) {
+  const stack = []
 
-    const stack = []
-
-    for (let i = 0; i < s.length; i++) {
-        if (stack.length === 0) stack.push(s[i])
-        else if (s[i] in braces) stack.push(s[i])
-        else if (braces[stack[stack.length - 1]] === s[i]) stack.pop()
-        else return false
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '(') {
+      stack.push(str[i])
+    } else {
+      const lastEl = stack.pop()
+      if (lastEl === undefined) {
+        return false
+      }
     }
-  
-    return stack.length === 0 ? true : false
+  }
+  return stack.length === 0 ? true : false
 }
 
+function checkBracketsThreeType(str) {
+  const braces = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+  }
 
+  const stack = []
 
-//Тесты
-console.log(isValid("([)]"))
-console.log(isValid("{([])}"))
-console.log(isValid("()[]{}"))
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '(' || str[i] === '[' || str[i] === '{') {
+      stack.push(str[i])
+    } else {
+      const lastEl = stack.pop()
+      if (str[i] !== braces[lastEl]) {
+        return false
+      }
+    }
+  }
+
+  return stack.length === 0 ? true : false
+}
+
+//* Тесты
+console.log(checkBracketsOneType('((()))')) //TRUE
+console.log(checkBracketsOneType('()()()')) //TRUE
+console.log(checkBracketsOneType('(()))')) //FALSE
+console.log(checkBracketsOneType('()()())')) //FALSE
+console.log(checkBracketsOneType('()))')) //FALSE
+
+console.log(checkBracketsThreeType('([)]')) //FALSE
+console.log(checkBracketsThreeType('{([])}')) //TRUE
+console.log(checkBracketsThreeType('()[]{}')) //TRUE
